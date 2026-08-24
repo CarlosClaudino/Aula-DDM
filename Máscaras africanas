@@ -1,0 +1,30 @@
+import { Text, View, Image } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={{ flex: 1, backgroundColor: '#2B1B17', justifyContent: 'center', alignItems: 'center', padding: 20 }}>
+      
+      {/* Imagem / Logo */}
+      <Image 
+        source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYZEhgBzVsfoq8IM-KllkxzlW1kTa1wvt7zT7gKOriDg&s=10' }} 
+        style={{ width: 135, height: 135, borderRadius: 90, borderWidth: 3, borderColor: '#D4A373', marginBottom: 20 }}
+      />
+
+      {/* Nome do Aplicativo */}
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#FAEDCD', textAlign: 'center', marginBottom: 8 }}>
+        AfroMask
+      </Text>
+
+      {/* Subtítulo / Slogan */}
+      <Text style={{ fontSize: 14, color: '#D4A373', textAlign: 'center', marginBottom: 40 }}>
+        Você com a história de África
+      </Text>
+
+      {/* Rodapé: Versão + Nome */}
+      <Text style={{ fontSize: 12, fontWeight: 'bold', color: '#D4A373', position: 'absolute', bottom: 30 }}>
+        v1.0 - Carlos Claudino
+      </Text>
+
+    </View>
+  );
+}
