@@ -25,7 +25,7 @@ export default function SplashScreen() {
 
         {/* Rodapé: Versão + Nome */}
         <Text style={styles.footer}>
-          v1.0 - Carlos Claudino
+          v2.0 - Carlos Claudino
         </Text>
       </View>
     </SafeAreaView>
