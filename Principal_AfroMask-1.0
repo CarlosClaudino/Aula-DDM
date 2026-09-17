@@ -1,0 +1,254 @@
+import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  Button,
+  Pressable,
+  ScrollView,
+  SafeAreaView,
+  StatusBar
+} from 'react-native';
+
+export default function HomeScreen() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#2B1B17" />
+
+      {/* CABEÇALHO */}
+      <View style={styles.header}>
+        <View>
+          <Text style={styles.headerTitle}>Museu de Máscaras</Text>
+          <Text style={styles.headerSubtitle}>Acervo & Exposições Ancestrais</Text>
+        </View>
+        <Image
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYZEhgBzVsfoq8IM-KllkxzlW1kTa1wvt7zT7gKOriDg&s=10' }}
+          style={styles.headerAvatar}
+        />
+      </View>
+
+      {/* CONTEÚDO PRINCIPAL (SCROLLVIEW) */}
+      <ScrollView style={styles.scrollContainer}>
+
+        {/* CAMPO DE BUSCA */}
+        <Text style={styles.inputLabel}>Pesquisar no acervo:</Text>
+        <TextInput
+          placeholder="Buscar por etnia, região ou ritual..."
+          placeholderTextColor="#888888"
+          style={styles.searchInput}
+        />
+
+        {/* EXPOSIÇÃO EM DESTAQUE */}
+        <Text style={styles.sectionTitle}>Exposição em Destaque</Text>
+        <View style={styles.featuredCard}>
+          <Image
+            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLYukB7EzMp2BuRmToXMS0nWXqKmEk4mwJ6tnZkjhgVQ&s=10' }}
+            style={styles.featuredImage}
+          />
+          <Text style={styles.featuredTitle}>Máscaras Ritualísticas Fang</Text>
+          <Text style={styles.featuredDescription}>
+            Utilizadas em rituais no Gabão, representam a conexão espiritual com os ancestrais e a proteção da tribo.
+          </Text>
+          <Button
+            title="Ver Detalhes da Peça"
+            color="#D4A373"
+            onPress={() => alert('Exibindo detalhes da Máscara Fang')}
+          />
+        </View>
+
+        {/* OUTRAS PEÇAS */}
+        <Text style={styles.sectionTitle}>Obras do Acervo</Text>
+
+        {/* PEÇA 1 */}
+        <View style={styles.itemCard}>
+          <Image
+            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPbHdG3CT1b9gw-PqETch35KDHWAWQof7avsQRCdSP8A&s=10' }}
+            style={styles.itemImage}
+          />
+          <View style={styles.itemInfo}>
+            <Text style={styles.itemTitle}>Máscara Baule</Text>
+            <Text style={styles.itemDescription}>
+              Origem: Costa do Marfim. Utilizada em celebrações comunitárias.
+            </Text>
+            <Pressable
+              style={styles.favoriteButton}
+              onPress={() => alert('Máscara Baule favoritada!')}
+            >
+              <Text style={styles.favoriteButtonText}>Favoritar</Text>
+            </Pressable>
+          </View>
+        </View>
+
+        {/* PEÇA 2 */}
+        <View style={styles.itemCard}>
+          <Image
+            source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMimVaf5wCruuVSVbKM6dP3q-KFFwCRaArlJDQRVRx8Q&s=10' }}
+            style={styles.itemImage}
+          />
+          <View style={styles.itemInfo}>
+            <Text style={styles.itemTitle}>Máscara Gelede (Yoruba)</Text>
+            <Text style={styles.itemDescription}>
+              Origem: Nigéria. Homenagem ao poder das matrizes ancestrais.
+            </Text>
+            <Pressable
+              style={styles.favoriteButton}
+              onPress={() => alert('Máscara Gelede favoritada!')}
+            >
+              <Text style={styles.favoriteButtonText}>Favoritar</Text>
+            </Pressable>
+          </View>
+        </View>
+
+      </ScrollView>
+
+      {/* RODAPÉ FIXO */}
+      <View style={styles.footer}>
+        <Pressable onPress={() => alert('Você já está na página do Acervo')}>
+          <Text style={styles.footerTextActive}>Acervo</Text>
+        </Pressable>
+        <Pressable onPress={() => alert('Navegando para Exposições')}>
+          <Text style={styles.footerText}>Exposições</Text>
+        </Pressable>
+        <Pressable onPress={() => alert('Navegando para Informações')}>
+          <Text style={styles.footerText}>Visitação</Text>
+        </Pressable>
+      </View>
+
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#2B1B17',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#D4A373',
+  },
+  headerTitle: {
+    color: '#D4A373',
+    fontSize: 22,
+    fontWeight: 'bold',
+  },
+  headerSubtitle: {
+    color: '#ffffff',
+    fontSize: 12,
+  },
+  headerAvatar: {
+    width: 45,
+    height: 45,
+    borderRadius: 45,
+    borderWidth: 2,
+    borderColor: '#D4A373',
+  },
+  scrollContainer: {
+    flex: 1,
+    padding: 20,
+  },
+  inputLabel: {
+    color: '#D4A373',
+    marginBottom: 5,
+  },
+  searchInput: {
+    borderWidth: 1,
+    borderColor: '#D4A373',
+    borderRadius: 3,
+    marginBottom: 20,
+    padding: 8,
+    color: '#ffffff',
+  },
+  sectionTitle: {
+    color: '#D4A373',
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginBottom: 10,
+  },
+  featuredCard: {
+    borderWidth: 1,
+    borderColor: '#D4A373',
+    borderRadius: 5,
+    padding: 10,
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  featuredImage: {
+    width: '100%',
+    height: 180,
+    borderRadius: 3,
+    marginBottom: 10,
+  },
+  featuredTitle: {
+    color: '#D4A373',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginBottom: 5,
+  },
+  featuredDescription: {
+    color: '#ffffff',
+    fontSize: 13,
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  itemCard: {
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: '#D4A373',
+    borderRadius: 3,
+    padding: 10,
+    marginBottom: 15,
+    alignItems: 'center',
+  },
+  itemImage: {
+    width: 70,
+    height: 70,
+    borderRadius: 3,
+    marginRight: 10,
+  },
+  itemInfo: {
+    flex: 1,
+  },
+  itemTitle: {
+    color: '#D4A373',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  itemDescription: {
+    color: '#ffffff',
+    fontSize: 12,
+    marginBottom: 5,
+  },
+  favoriteButton: {
+    backgroundColor: '#D4A373',
+    padding: 5,
+    borderRadius: 3,
+    alignSelf: 'flex-start',
+  },
+  favoriteButtonText: {
+    color: '#2B1B17',
+    fontWeight: 'bold',
+    fontSize: 12,
+  },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    backgroundColor: '#1E120F',
+    padding: 15,
+    borderTopWidth: 1,
+    borderTopColor: '#D4A373',
+  },
+  footerTextActive: {
+    color: '#D4A373',
+    fontWeight: 'bold',
+  },
+  footerText: {
+    color: '#ffffff',
+  },
+});
