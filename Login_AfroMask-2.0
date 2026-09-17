@@ -1,0 +1,71 @@
+import React from 'react';
+import { StyleSheet, Text, View, Image, TextInput, Button, SafeAreaView, StatusBar } from 'react-native';
+
+export default function LoginScreen() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#2B1B17" />
+      <View style={styles.content}>
+        <Image
+          source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYZEhgBzVsfoq8IM-KllkxzlW1kTa1wvt7zT7gKOriDg&s=10' }}
+          style={styles.logo}
+        />
+        
+        <Text style={styles.label}>Insira o e-mail abaixo:</Text>
+        <TextInput
+          placeholder="seu e-mail"
+          placeholderTextColor="#888888"
+          style={styles.input}
+        />
+
+        <Text style={styles.label}>Insira a senha abaixo:</Text>
+        <TextInput
+          placeholder="senha"
+          placeholderTextColor="#888888"
+          keyboardType="numeric"
+          secureTextEntry={true}
+          style={styles.input}
+        />
+
+        <Button
+          title="entrar"
+          color="#D4A373"
+          onPress={() => alert('Sucesso')}
+        />
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#2B1B17',
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  logo: {
+    width: 90,
+    height: 90,
+    borderRadius: 90,
+    borderWidth: 3,
+    borderColor: '#D4A373',
+    marginBottom: 20,
+  },
+  label: {
+    color: '#D4A373',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#D4A373',
+    borderRadius: 3,
+    margin: 20,
+    padding: 5,
+    color: '#ffffff',
+    width: '100%',
+  },
+});
